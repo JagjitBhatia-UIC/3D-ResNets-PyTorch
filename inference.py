@@ -12,6 +12,9 @@ def get_video_results(outputs, class_names, output_topk):
     sorted_scores, locs = torch.topk(outputs,
                                      k=min(output_topk, len(class_names)))
 
+    print('classes: ', class_names)
+    print('scores: ', sorted_scores)
+    print('---------------')
     video_results = []
     for i in range(sorted_scores.size(0)):
         video_results.append({
